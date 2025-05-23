@@ -1,4 +1,4 @@
-🌱 studying Applied Computer Science
+🌱 Studying Applied Computer Science
 
 ⚡ Interested in parallel programming, software architecture and compilers (didn't find the time yet for the latter)
 
