@@ -1,6 +1,6 @@
 <h2 align="left">Hi, I'm Ole 👋</h2>
 
-🌱 Studying **Applied Computer Science**
+🌱 Studying **Applied Computer Science** <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![Bachlor progress](https://progress-bar.xyz/100?title=Bachelor) ![Master progress](https://progress-bar.xyz/40?title=Master)
 
 ⚡ Interested in **parallel programming**, **software architecture** and compilers (didn't find the time yet for the latter)
 
