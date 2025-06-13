@@ -29,9 +29,8 @@
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/junit/junit-original.svg" height="30" alt="junit5 logo"  />
   <img width="12" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/intellij/intellij-original.svg" height="30" alt="intellij logo"  />
-  <p>
-    <img src="https://github-readme-stats.vercel.app/api/top-langs?username=olepoeschl&locale=en&hide_title=false&layout=compact&card_width=320&langs_count=5&theme=dracula&hide_border=false" alt="languages graph"  />
-  </p>
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/maven/maven-original.svg" height="30" alt="maven logo"  />
 </div>
 
 <!--img align="right" src="https://visitor-badge.laobi.icu/badge?page_id=olepoeschl.olepoeschl&left_text=visited" /-->
