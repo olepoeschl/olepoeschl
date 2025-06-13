@@ -4,6 +4,12 @@
 
 ⚡ Interested in **parallel programming**, **software architecture** and compilers (didn't find the time yet for the latter)
 
+🌍 Currently working on:
+- a cross-platform library for creating self-updating Java desktop applications: [Upme](https://github.com/olepoeschl/Upme)
+- a server-client system for distributed, highly parallel solving of the n-queens problem based on volunteer computing (work in progress, will be open source at some point)
+
+🇩🇪 Based in Germany
+
 📫 How to reach me: <a href="mailto:ole@poeschl.io">ole@poeschl.io</a>
 
 ###
