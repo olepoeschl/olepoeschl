@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summoners War Scroll Calculator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            /* New Color Palette */
+            --primary-bg: #1A1A2E; /* Deep Blue-Purple */
+            --secondary-bg: #2A2A4A; /* Slightly lighter Blue-Purple */
+            --accent-color: #E94560; /* Vibrant Red-Pink */
+            --text-color: #E0E0E0; /* Off-white */
+            --subtle-color: #4A4A6E; /* Muted Purple for borders/dividers */
+            --input-bg: #3A3A5E; /* Medium Blue-Purple for inputs */
+            --shadow-light: rgba(0, 0, 0, 0.2);
+            --shadow-dark: rgba(0, 0, 0, 0.4);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--primary-bg);
+            color: var(--text-color);
+            margin: 0;
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Align to top for better scrolling */
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .container {
+            background: var(--secondary-bg);
+            border-radius: 15px;
+            box-shadow: 0 15px 40px var(--shadow-dark);
+            padding: 2.5rem;
+            width: 100%;
+            max-width: 1100px; /* Slightly wider for better layout */
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+            overflow: hidden;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                grid-template-columns: 1.2fr 1fr; /* Input section slightly wider */
+            }
+        }
+
+        h1 {
+            grid-column: 1 / -1;
+            text-align: center;
+            color: var(--accent-color);
+            margin-bottom: 2rem;
+            font-weight: 700;
+            font-size: 2.8rem; /* Larger heading */
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 5px var(--shadow-light);
+        }
+
+        .section-card {
+            background: var(--primary-bg);
+            border-radius: 10px;
+            box-shadow: inset 0 3px 8px var(--shadow-dark); /* Deeper inner shadow */
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .section-card h2 {
+            color: var(--accent-color);
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            font-size: 1.8rem;
+            text-align: center;
+            border-bottom: 2px solid var(--subtle-color);
+            padding-bottom: 1rem;
+        }
+
+        .input-group {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 0.8rem;
+        }
+
+        .input-group label {
+            flex-basis: 65%; /* Adjusted for longer labels */
+            font-weight: 400;
+            color: var(--text-color);
+            font-size: 1.05rem;
+        }
+
+        .input-group input[type="number"] {
+            flex-basis: 30%;
+            padding: 0.7rem 1rem;
+            border: 1px solid var(--subtle-color);
+            border-radius: 8px;
+            background: var(--input-bg);
+            color: var(--text-color);
+            font-size: 1.1rem;
+            text-align: center;
+            -moz-appearance: textfield; /* Firefox */
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .input-group input[type="number"]:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(233, 69, 96, 0.3); /* Soft glow on focus */
+            outline: none;
+        }
+
+        .input-group input[type="number"]::-webkit-outer-spin-button,
+        .input-group input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.7rem 0;
+            border-bottom: 1px dashed var(--subtle-color);
+            font-size: 1.1rem;
+        }
+
+        .stat-item:last-of-type { /* Use last-of-type for the last stat item */
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .stat-label {
+            font-weight: 400;
+            color: var(--text-color);
+        }
+
+        .stat-value {
+            font-weight: 600;
+            color: var(--accent-color);
+            font-size: 1.2rem; /* Slightly larger for emphasis */
+        }
+
+        .notes {
+            grid-column: 1 / -1;
+            background: var(--primary-bg);
+            border-radius: 10px;
+            box-shadow: inset 0 3px 8px var(--shadow-dark);
+            padding: 2rem;
+            margin-top: 1rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+        .notes h3 {
+            color: var(--accent-color);
+            margin-top: 0;
+            font-size: 1.5rem;
+            font-weight: 600;
+            border-bottom: 2px solid var(--subtle-color);
+            padding-bottom: 0.8rem;
+            margin-bottom: 1rem;
+        }
+        .notes ul {
+            padding-left: 1.5rem;
+            margin: 0;
+        }
+        .notes li {
+            margin-bottom: 0.5rem;
+        }
+
+        .chart-container {
+            margin-top: 1.5rem;
+            position: relative;
+            height: 300px; /* Increased height for better chart visibility */
+            width: 100%;
+        }
+
+        /* Chart.js specific styling */
+        .chartjs-render-monitor {
+            background-color: var(--primary-bg); /* Ensure chart background matches card */
+            border-radius: 8px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Summoners War Scroll Calculator</h1>
+
+        <div class="section-card input-section">
+            <h2>Your Scrolls</h2>
+            <div class="input-group">
+                <label for="mysticalScrolls">Mystical Scrolls:</label>
+                <input type="number" id="mysticalScrolls" value="0" min="0">
+            </div>
+            <div class="input-group">
+                <label for="elevenYearScrolls">11-Years Special Scrolls:</label>
+                <input type="number" id="elevenYearScrolls" value="0" min="0">
+            </div>
+            <div class="input-group">
+                <label for="demonSlayerScrolls">Demon Slayer Scrolls:</label>
+                <input type="number" id="demonSlayerScrolls" value="0" min="0">
+            </div>
+            <div class="input-group">
+                <label for="transcendenceScrolls">Transcendence Scrolls:</label>
+                <input type="number" id="transcendenceScrolls" value="0" min="0">
+            </div>
+            <div class="input-group">
+                <label for="legendaryAllElementsScrolls">Legendary All-Elements Scrolls:</label>
+                <input type="number" id="legendaryAllElementsScrolls" value="0" min="0">
+            </div>
+            <div class="input-group">
+                <label for="legendaryScrolls">Legendary Scrolls:</label>
+                <input type="number" id="legendaryScrolls" value="0" min="0">
+            </div>
+            <div class="input-group">
+                <label for="lightDarkScrolls">Light/Dark Scrolls:</label>
+                <input type="number" id="lightDarkScrolls" value="0" min="0">
+            </div>
+            <div class="input-group">
+                <label for="waterScrolls">Water Scrolls:</label>
+                <input type="number" id="waterScrolls" value="0" min="0">
+            </div>
+            <div class="input-group">
+                <label for="fireScrolls">Fire Scrolls:</label>
+                <input type="number" id="fireScrolls" value="0" min="0">
+            </div>
+            <div class="input-group">
+                <label for="windScrolls">Wind Scrolls:</label>
+                <input type="number" id="windScrolls" value="0" min="0">
+            </div>
+            <div class="input-group">
+                <label for="engravedSummons">Engraved Summons:</label>
+                <input type="number" id="engravedSummons" value="0" min="0">
+            </div>
+        </div>
+
+        <div class="section-card stats-section">
+            <h2>Summoning Statistics</h2>
+            <div class="stat-item">
+                <span class="stat-label">Total Mana Needed:</span>
+                <span class="stat-value" id="manaNeeded">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Total Scrolls:</span>
+                <span class="stat-value" id="totalScrolls">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Legendary-like Summons:</span>
+                <span class="stat-value" id="legendaryLikeSummons">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Summons with L/D Potential:</span>
+                <span class="stat-value" id="ldPotentialSummons">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Expected Elemental Nat 5s:</span>
+                <span class="stat-value" id="expectedNat5s">0.00</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Expected 4★ Monsters:</span>
+                <span class="stat-value" id="expectedNat4s">0.00</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Expected Total Lightning:</span>
+                <span class="stat-value" id="expectedLightning">0.00</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Chance of at least one L/D Nat 5:</span>
+                <span class="stat-value" id="ldNat5Chance">0.00%</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Approx. Time (1x Summons):</span>
+                <span class="stat-value" id="time1x">0h 0m 0s</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Approx. Time (10x Summons):</span>
+                <span class="stat-value" id="time10x">0h 0m 0s</span>
+            </div>
+            <div class="chart-container">
+                <canvas id="nat5Chart"></canvas>
+            </div>
+        </div>
+
+        <div class="notes">
+            <h3>Important Notes on Rates:</h3>
+            <ul>
+                <li>**Mystical, Elemental, Engraved:** 0.5% Nat 5 chance, 8% Nat 4 chance, 8.5% total lightning chance.</li>
+                <li>**Legendary, All-Elements Legendary, Demon Slayer:** 7.0% Nat 5 chance, 93% Nat 4 chance, 100% total lightning chance. These are primarily for *elemental* Nat 5s, but have a small 0.4% chance for an L/D Nat 5.</li>
+                <li>**Transcendence:** 100% Elemental Nat 5 chance, 0% Nat 4 chance, 100% total lightning chance.</li>
+                <li>**Light/Dark Scrolls:** 0.35% L/D Nat 5 chance, 6% L/D Nat 4 chance, 6.35% total lightning chance. This is the primary source for L/D Nat 5s.</li>
+                <li>**11-Years Special Scrolls:** Assumed to have a 0.5% elemental Nat 5 chance, 8% elemental Nat 4 chance, an estimated 0.05% L/D Nat 5 chance, and an estimated 1% L/D Nat 4 chance. Total lightning chance is estimated at 9.0%. These L/D rates are estimations based on community observations, as official rates for this specific type of event scroll's L/D likelihood are not always precisely detailed.</li>
+                <li>**Summoning Time Estimates:** These are approximate based on typical in-game animations and user interaction speed (4 seconds per 1x summon, 18 seconds per 10x summon). Actual times may vary.</li>
+                <li>**RNG is RNG:** These calculations are based on statistical probabilities. Your actual summoning results may vary wildly. Good luck!</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Set global Chart.js defaults for text color and font family
+        Chart.defaults.color = '#E0E0E0'; /* Use --text-color directly or its hex value */
+        Chart.defaults.font.family = 'Poppins, sans-serif';
+
+        // Scroll Mana Costs
+        const MANA_COSTS = {
+            mystical: 10000,
+            elevenYear: 10000, // Assuming similar cost to Mystical
+            demonSlayer: 50000, // Comparable to Legendary
+            transcendence: 50000,
+            legendaryAllElements: 50000,
+            legendary: 50000,
+            lightDark: 50000,
+            water: 10000,
+            fire: 10000,
+            wind: 10000,
+            engraved: 10000 // Comparable to Mystical
+        };
+
+        // Nat 5 Drop Rates (as decimal)
+        const NAT5_RATES = {
+            mystical: 0.005,
+            elevenYear_elemental: 0.005, // For elemental Nat 5s from 11-Year
+            elevenYear_ld: 0.0005,      // Estimated L/D Nat 5 rate for 11-Year
+            demonSlayer: 0.07,
+            demonSlayer_ld: 0.004, // L/D Nat 5 rate for Demon Slayer
+            transcendence: 1.00,
+            legendaryAllElements: 0.07,
+            legendaryAllElements_ld: 0.004, // L/D Nat 5 rate for Legendary All-Elements
+            legendary: 0.07,
+            lightDark: 0.0035, // L/D Nat 5 specific rate
+            water: 0.005,
+            fire: 0.005,
+            wind: 0.005,
+            engraved: 0.005
+        };
+
+        // Nat 4 Drop Rates (as decimal)
+        const NAT4_RATES = {
+            mystical: 0.08,
+            elevenYear_elemental: 0.08,
+            elevenYear_ld: 0.01, // Estimated L/D Nat 4 rate for 11-Year
+            demonSlayer: 0.93,   // Guarantees 4* or 5*
+            legendaryAllElements: 0.93, // Guarantees 4* or 5*
+            legendary: 0.93,     // Guarantees 4* or 5*
+            lightDark: 0.06,     // L/D Nat 4 specific rate
+            water: 0.08,
+            fire: 0.08,
+            wind: 0.08,
+            engraved: 0.08
+        };
+
+        // Total Lightning Rates (as decimal: Nat 4 + Nat 5 + Awakened 3*)
+        const LIGHTNING_RATES = {
+            mystical: 0.085,
+            elevenYear: 0.09, // Slightly higher than mystical due to L/D pool
+            demonSlayer: 1.00, // Guarantees lightning
+            transcendence: 1.00, // Guarantees lightning
+            legendaryAllElements: 1.00, // Guarantees lightning
+            legendary: 1.00,     // Guarantees lightning
+            lightDark: 0.0635,   // L/D 4* + L/D 5*
+            water: 0.085,
+            fire: 0.085,
+            wind: 0.085,
+            engraved: 0.085
+        };
+
+        // Summoning Time Estimates (in seconds)
+        const TIME_PER_1X_SUMMON = 4; // Approx. 4 seconds per single summon
+        const TIME_PER_10X_SUMMON = 18; // Approx. 18 seconds per 10x summon
+
+        const elements = {
+            mysticalScrolls: document.getElementById('mysticalScrolls'),
+            elevenYearScrolls: document.getElementById('elevenYearScrolls'),
+            demonSlayerScrolls: document.getElementById('demonSlayerScrolls'),
+            transcendenceScrolls: document.getElementById('transcendenceScrolls'),
+            legendaryAllElementsScrolls: document.getElementById('legendaryAllElementsScrolls'),
+            legendaryScrolls: document.getElementById('legendaryScrolls'),
+            lightDarkScrolls: document.getElementById('lightDarkScrolls'),
+            waterScrolls: document.getElementById('waterScrolls'),
+            fireScrolls: document.getElementById('fireScrolls'),
+            windScrolls: document.getElementById('windScrolls'),
+            engravedSummons: document.getElementById('engravedSummons'),
+
+            manaNeeded: document.getElementById('manaNeeded'),
+            totalScrolls: document.getElementById('totalScrolls'),
+            legendaryLikeSummons: document.getElementById('legendaryLikeSummons'),
+            ldPotentialSummons: document.getElementById('ldPotentialSummons'),
+            expectedNat5s: document.getElementById('expectedNat5s'),
+            expectedNat4s: document.getElementById('expectedNat4s'),
+            expectedLightning: document.getElementById('expectedLightning'),
+            ldNat5Chance: document.getElementById('ldNat5Chance'),
+            time1x: document.getElementById('time1x'),
+            time10x: document.getElementById('time10x')
+        };
+
+        // Array to easily iterate over input IDs for saving/loading
+        const inputIds = [
+            'mysticalScrolls', 'elevenYearScrolls', 'demonSlayerScrolls',
+            'transcendenceScrolls', 'legendaryAllElementsScrolls', 'legendaryScrolls',
+            'lightDarkScrolls', 'waterScrolls', 'fireScrolls', 'windScrolls',
+            'engravedSummons'
+        ];
+
+        let nat5Chart; // Variable to hold the Chart.js instance
+
+        function saveInputs() {
+            inputIds.forEach(id => {
+                const inputElement = document.getElementById(id);
+                if (inputElement) {
+                    localStorage.setItem(id, inputElement.value);
+                }
+            });
+        }
+
+        function loadInputs() {
+            inputIds.forEach(id => {
+                const inputElement = document.getElementById(id);
+                if (inputElement) {
+                    const savedValue = localStorage.getItem(id);
+                    if (savedValue !== null) {
+                        inputElement.value = savedValue;
+                    }
+                }
+            });
+        }
+
+        // Helper function to format seconds into Hh Mm Ss
+        function formatTime(totalSeconds) {
+            if (totalSeconds < 0) return "N/A";
+            const hours = Math.floor(totalSeconds / 3600);
+            const minutes = Math.floor((totalSeconds % 3600) / 60);
+            const seconds = totalSeconds % 60;
+            
+            let timeString = "";
+            if (hours > 0) timeString += `${hours}h `;
+            if (minutes > 0 || hours > 0) timeString += `${minutes}m `;
+            timeString += `${seconds}s`;
+            return timeString.trim();
+        }
+
+        function calculateStats() {
+            const ms = parseInt(elements.mysticalScrolls.value) || 0;
+            const eys = parseInt(elements.elevenYearScrolls.value) || 0;
+            const dss = parseInt(elements.demonSlayerScrolls.value) || 0;
+            const ts = parseInt(elements.transcendenceScrolls.value) || 0;
+            const aels = parseInt(elements.legendaryAllElementsScrolls.value) || 0;
+            const ls = parseInt(elements.legendaryScrolls.value) || 0;
+            const lds = parseInt(elements.lightDarkScrolls.value) || 0;
+            const ws = parseInt(elements.waterScrolls.value) || 0;
+            const fs = parseInt(elements.fireScrolls.value) || 0;
+            const wis = parseInt(elements.windScrolls.value) || 0;
+            const es = parseInt(elements.engravedSummons.value) || 0;
+
+            // 1. Total Mana Needed
+            let totalMana = (ms * MANA_COSTS.mystical) +
+                            (eys * MANA_COSTS.elevenYear) +
+                            (dss * MANA_COSTS.demonSlayer) +
+                            (ts * MANA_COSTS.transcendence) +
+                            (aels * MANA_COSTS.legendaryAllElements) +
+                            (ls * MANA_COSTS.legendary) +
+                            (lds * MANA_COSTS.lightDark) +
+                            (ws * MANA_COSTS.water) +
+                            (fs * MANA_COSTS.fire) +
+                            (wis * MANA_COSTS.wind) +
+                            (es * MANA_COSTS.engraved);
+            elements.manaNeeded.textContent = totalMana.toLocaleString();
+
+            // 2. Sum of the total count of all these scrolls
+            const totalScrollCount = ms + eys + dss + ts + aels + ls + lds + ws + fs + wis + es;
+            elements.totalScrolls.textContent = totalScrollCount;
+
+            // 3. How many legendary-like summons do I have?
+            const legendaryLike = dss + ts + aels + ls;
+            elements.legendaryLikeSummons.textContent = legendaryLike;
+
+            // 4. How many summons that could yield a Light/Dark monster do I have?
+            const ldPotential = eys + lds + aels + dss;
+            elements.ldPotentialSummons.textContent = ldPotential;
+
+            // 5. Expected number of Nat 5s (Elemental)
+            let expectedElementalNat5s =
+                (ms * NAT5_RATES.mystical) +
+                (eys * NAT5_RATES.elevenYear_elemental) +
+                (dss * NAT5_RATES.demonSlayer) +
+                (ts * NAT5_RATES.transcendence) +
+                (aels * NAT5_RATES.legendaryAllElements) +
+                (ls * NAT5_RATES.legendary) +
+                (ws * NAT5_RATES.water) +
+                (fs * NAT5_RATES.fire) +
+                (wis * NAT5_RATES.wind) +
+                (es * NAT5_RATES.engraved);
+
+            elements.expectedNat5s.textContent = expectedElementalNat5s.toFixed(2);
+
+            // Expected 4-star Monsters
+            let expectedNat4s =
+                (ms * NAT4_RATES.mystical) +
+                (eys * (NAT4_RATES.elevenYear_elemental + NAT4_RATES.elevenYear_ld)) +
+                (dss * NAT4_RATES.demonSlayer) +
+                (aels * NAT4_RATES.legendaryAllElements) +
+                (ls * NAT4_RATES.legendary) +
+                (lds * NAT4_RATES.lightDark) +
+                (ws * NAT4_RATES.water) +
+                (fs * NAT4_RATES.fire) +
+                (wis * NAT4_RATES.wind) +
+                (es * NAT4_RATES.engraved);
+            elements.expectedNat4s.textContent = expectedNat4s.toFixed(2);
+
+            // Expected Total Lightning
+            let expectedLightning =
+                (ms * LIGHTNING_RATES.mystical) +
+                (eys * LIGHTNING_RATES.elevenYear) +
+                (dss * LIGHTNING_RATES.demonSlayer) +
+                (ts * LIGHTNING_RATES.transcendence) +
+                (aels * LIGHTNING_RATES.legendaryAllElements) +
+                (ls * LIGHTNING_RATES.legendary) +
+                (lds * LIGHTNING_RATES.lightDark) +
+                (ws * LIGHTNING_RATES.water) +
+                (fs * LIGHTNING_RATES.fire) +
+                (wis * LIGHTNING_RATES.wind) +
+                (es * LIGHTNING_RATES.engraved);
+            elements.expectedLightning.textContent = expectedLightning.toFixed(2);
+
+
+            // 6. Chance of getting at least one Light/Dark Nat 5
+			let probNoLdNat5 = 1.0;
+            probNoLdNat5 *= Math.pow((1 - NAT5_RATES.lightDark), lds);
+            probNoLdNat5 *= Math.pow((1 - NAT5_RATES.elevenYear_ld), eys);
+            probNoLdNat5 *= Math.pow((1 - NAT5_RATES.legendaryAllElements_ld), aels);
+            //probNoLdNat5 *= Math.pow((1 - NAT5_RATES.demonSlayer_ld), dss);
+            const ldNat5OverallChance = (1 - probNoLdNat5) * 100;
+            elements.ldNat5Chance.textContent = ldNat5OverallChance.toFixed(2) + '%';
+
+            // 7. Approximate Summoning Time
+            const totalTime1x = totalScrollCount * TIME_PER_1X_SUMMON;
+            elements.time1x.textContent = formatTime(totalTime1x);
+
+            const num10xSummons = Math.floor(totalScrollCount / 10);
+            const remaining1xSummons = totalScrollCount % 10;
+            const totalTime10x = (num10xSummons * TIME_PER_10X_SUMMON) + (remaining1xSummons * TIME_PER_1X_SUMMON);
+            elements.time10x.textContent = formatTime(totalTime10x);
+
+            updateChart(expectedElementalNat5s, ldNat5OverallChance, expectedNat4s, expectedLightning);
+            saveInputs();
+        }
+
+        function updateChart(expectedElementalNat5s, ldNat5OverallChance, expectedNat4s, expectedLightning) {
+            const ctx = document.getElementById('nat5Chart').getContext('2d');
+
+            if (nat5Chart) {
+                nat5Chart.destroy();
+            }
+
+            nat5Chart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Expected Elemental Nat 5s', 'L/D Nat 5 Chance (%)', 'Expected 4★ Monsters', 'Expected Lightning'],
+                    datasets: [{
+                        label: 'Probability / Count',
+                        data: [expectedElementalNat5s, ldNat5OverallChance, expectedNat4s, expectedLightning],
+                        backgroundColor: [
+                            'rgba(233, 69, 96, 0.7)',
+                            'rgba(74, 74, 110, 0.7)',
+                            'rgba(141, 198, 63, 0.7)',
+                            'rgba(255, 159, 64, 0.7)'
+                        ],
+                        borderColor: [
+                            'rgba(233, 69, 96, 1)',
+                            'rgba(74, 74, 110, 1)',
+                            'rgba(141, 198, 63, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1,
+                        borderRadius: 5,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                color: Chart.defaults.color,
+                                font: {
+                                    size: 12
+                                }
+                            },
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.08)',
+                                drawBorder: false
+                            },
+                            title: {
+                                display: true,
+                                text: 'Value',
+                                color: Chart.defaults.color, /* Changed to use global default color */
+                                font: {
+                                    size: 14,
+                                    weight: '600'
+                                }
+                            }
+                        },
+                        x: {
+                            ticks: {
+                                color: Chart.defaults.color,
+                                font: {
+                                    size: 12
+                                }
+                            },
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.08)',
+                                drawBorder: false
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        title: {
+                            display: true,
+                            text: 'Summoning Outcome Predictions',
+                            color: Chart.defaults.color, /* Changed to use global default color */
+                            font: {
+                                size: 18,
+                                weight: '700'
+                            },
+                            padding: {
+                                top: 10,
+                                bottom: 20
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                            titleColor: Chart.defaults.color,
+                            bodyColor: Chart.defaults.color,
+                            borderColor: 'var(--accent-color)',
+                            borderWidth: 1,
+                            cornerRadius: 5,
+                            callbacks: {
+                                label: function(context) {
+                                    if (context.dataIndex === 0) {
+                                        return `Expected: ${context.raw.toFixed(2)} Nat 5s`;
+                                    } else if (context.dataIndex === 1) {
+                                        return `Chance: ${context.raw.toFixed(2)}%`;
+                                    } else if (context.dataIndex === 2) {
+                                        return `Expected: ${context.raw.toFixed(2)} 4★s`;
+                                    } else if (context.dataIndex === 3) {
+                                        return `Expected: ${context.raw.toFixed(2)} Lightning`;
+                                    }
+                                    return '';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+
+        // Add event listeners to all input fields
+        inputIds.forEach(id => {
+            const inputElement = document.getElementById(id);
+            if (inputElement) {
+                inputElement.addEventListener('input', calculateStats);
+            }
+        });
+
+        // Load inputs and then perform initial calculation when the page loads
+        loadInputs();
+        calculateStats();
+
+        // If no saved inputs, populate with your initial values for testing/demonstration
+        // This block will only execute if localStorage is empty for these keys
+        const firstLoadCheck = localStorage.getItem('mysticalScrolls');
+        if (firstLoadCheck === null || firstLoadCheck === "0") {
+            elements.elevenYearScrolls.value = 270;
+            elements.demonSlayerScrolls.value = 6;
+            elements.transcendenceScrolls.value = 1;
+            elements.legendaryAllElementsScrolls.value = 15;
+            elements.legendaryScrolls.value = 26;
+            elements.lightDarkScrolls.value = 43;
+            elements.waterScrolls.value = 65;
+            elements.fireScrolls.value = 62;
+            elements.windScrolls.value = 64;
+            elements.mysticalScrolls.value = 1354;
+            elements.engravedSummons.value = 146;
+            calculateStats();
+        }
+    </script>
+</body>
+</html>
