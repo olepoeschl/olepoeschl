@@ -20,6 +20,8 @@
   <img width="12" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencl/opencl-original.svg" width="30" alt="opencl logo" title="OpenCL" />
   <img width="12" />
+  <img src="https://www.svgrepo.com/show/373541/cuda.svg" width="30" alt="cuda logo" title="CUDA" />
+  <img width="12" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" width="30" alt="c logo" title="C" />
   <img width="12" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg" width="30" alt="android logo" title="Android" />
