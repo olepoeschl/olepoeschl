@@ -2,7 +2,7 @@
 
 🌱 Studying **Applied Computer Science** <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![Bachlor progress](https://progress-bar.xyz/100?title=Bachelor) ![Master progress](https://progress-bar.xyz/40?title=Master)
 
-⚡ Interested in **parallel programming**, **software architecture** and compilers (didn't find the time yet for the latter)
+⚡ Interested in **parallel programming**, **software architecture** and gamedev
 
 🚀 Currently working on:
 - a cross-platform library for creating self-updating Java desktop applications: [Upme](https://github.com/olepoeschl/Upme)
