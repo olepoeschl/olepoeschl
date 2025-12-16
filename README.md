@@ -5,8 +5,9 @@
 ⚡ Interested in **parallel programming**, **software architecture** and gamedev
 
 🚀 Currently working on:
-- a cross-platform library for creating self-updating Java desktop applications: [Upme](https://github.com/olepoeschl/Upme)
 - a real time remote support system for android-based AR glasses
+- optimzed methods and a distributed system for solving the N-queens problem
+- a cross-platform library for creating self-updating Java desktop applications: [Upme](https://github.com/olepoeschl/Upme)
 
 🇩🇪 Based in Germany
 
