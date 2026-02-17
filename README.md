@@ -2,16 +2,23 @@
 
 🌱 Studying **Applied Computer Science** <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![Bachlor progress](https://progress-bar.xyz/100?title=Bachelor) ![Master progress](https://progress-bar.xyz/50?title=Master)
 
-⚡ Interested in **parallel programming**, **software architecture** and gamedev
+⚡ Interested in **parallel programming**, distributed systems, gamedev
 
 🚀 Currently working on:
-- a real time remote support system for android-based AR glasses
-- optimzed methods and a distributed system for solving the N-queens problem
-- a cross-platform library for creating self-updating Java desktop applications: [Upme](https://github.com/olepoeschl/Upme)
+- **optimized** methods and an improved **distributed system** for solving the **N-queens problem**
+- a **Java library** for creating **self-updating** desktop applications
 
-🇩🇪 Based in Germany
-
-📫 How to reach me: <a href="mailto:ole@poeschl.io">ole@poeschl.io</a>
+🏁 Finished Projects:
+- a **real time remote support** system for android-based **AR glasses** (solo-project as a research assistant)
+  - Backend: *Java, Javalin*
+  - Web-Frontend: *plain HTML+CSS+Javascript*
+  - Android-Frontend: *Java, Android Views, MVVM, Hilt*
+  - Protocols: *WebSocket, WebRTC*
+- a pixel-based **2-player mobile game** for long-distance relationship couples, based in a shared world, with **synchronous and asynchronous interaction** features
+  - Tech-Stack: *Java, libGDX, Tiled*
+- a prototype of a **distributed system** for solving the **N-queens problem** on **heterogenous GPUs** (Bachelor's thesis)
+  - Backend: *Java, Javalin, SQLite*
+  - Frontend: *Java, Java Swing, Java Threads, OpenCL*
 
 ###
 
@@ -19,7 +26,7 @@
 <div align="left">
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" width="30" alt="java logo" title="Java" />
   <img width="12" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencl/opencl-original.svg" width="30" alt="opencl logo" title="OpenCL" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencl/opencl-original.svg" width="40" alt="opencl logo" title="OpenCL" />
   <img width="12" />
   <img src="https://www.svgrepo.com/show/373541/cuda.svg" width="30" alt="cuda logo" title="CUDA" />
   <img width="12" />
@@ -34,6 +41,8 @@
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/intellij/intellij-original.svg" width="30" alt="intellij logo" title="IntelliJ" />
   <img width="12" />
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/maven/maven-original.svg" width="30" alt="maven logo" title="Maven" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/libgdx/libgdx-original.svg" width="40" alt="libgdx logo" title="libGDX" />
+          
 </div>
 
 <!--img align="right" src="https://visitor-badge.laobi.icu/badge?page_id=olepoeschl.olepoeschl&left_text=visited" /-->
