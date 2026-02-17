@@ -23,7 +23,7 @@ Generally, I try to be open to everything! My dream is to live a simple life and
 ## 🚀 Next up:
 - I wanna learn *Rust*.
 - I wanna learn *SYCL* and try [AdaptiveCPP](https://github.com/AdaptiveCpp/AdaptiveCpp).
-- I wanna dive a bit deeper into *IT security*, as this was a big topic during my Bachelor's, which I had little exposure to in the last years.
+- I wanna dive a bit deeper into *IT security*, as this was a major topic during my Bachelor's that I've had little exposure to in the last few years.
 
 ## 🏁 Finished Projects:
 - a **real time remote support** system for android-based **AR glasses** (solo-project as a research assistant)
