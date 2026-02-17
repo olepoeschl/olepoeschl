@@ -19,6 +19,7 @@
 - a prototype of a **distributed system** for solving the **N-queens problem** on **heterogenous GPUs** (Bachelor's thesis)
   - Backend: *Java, Javalin, SQLite*
   - Frontend: *Java, Java Swing, Java Threads, OpenCL*
+- **high-performance** single-GPU, multi-GPU and multithreaded solvers for the **N-queens problem** (<a href="https://github.com/olepoeschl/NQueensFAF">source code</a>)
 
 ###
 
