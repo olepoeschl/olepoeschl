@@ -1,24 +1,31 @@
-<h2 align="left">Hi, I'm Ole 👋</h2>
+## Hi, I'm Ole 👋
 
 🌱 Studying **Applied Computer Science** <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![Bachlor progress](https://progress-bar.xyz/100?title=Bachelor) ![Master progress](https://progress-bar.xyz/50?title=Master)
 
 I am mainly interested in **parallel programming**, distributed systems and gamedev. Specifically, the **N-queens problem** has been part of my dev life for several years now.
 
-As for me as an individual human being:
+Beyond my dev life:
 - travelling, camping and backpacking,
-- board games,
+- board games and video games,
 - bouldering,
 - speedcubing,
 - and sometimes producing hip-hop beats
 
-are activities I enjoy. Generally, I try to be open to everything! My dream is to live a simple life and I already try to implement that, which I find rewarding but not always easy in our modern world.
-<br>
+are activities I enjoy. <br>
+Generally, I try to be open to everything! My dream is to live a simple life and I already try to implement that, which I find rewarding but not always easy in our modern world.
+ 
+### 
 
-🚀 Currently working on:
+## 🛠️ Work in progress:
 - **optimized** methods and an improved **distributed system** for solving the **N-queens problem**
 - a **Java library** for creating **self-updating** desktop applications
 
-🏁 Finished Projects:
+## 🚀 Next up:
+- I wanna learn *Rust*.
+- I wanna learn *SYCL* and try [AdaptiveCPP](https://github.com/AdaptiveCpp/AdaptiveCpp).
+- I wanna dive a bit deeper into *IT security*, as this was a big topic during my Bachelor's, which I had little exposure to in the last years.
+
+## 🏁 Finished Projects:
 - a **real time remote support** system for android-based **AR glasses** (solo-project as a research assistant)
   - Backend: *Java, Javalin*
   - Web-Frontend: *plain HTML+CSS+Javascript*
@@ -32,9 +39,9 @@ are activities I enjoy. Generally, I try to be open to everything! My dream is t
 - **high-performance** single-GPU, multi-GPU and multithreaded solvers for the **N-queens problem** (<a href="https://github.com/olepoeschl/NQueensFAF">source code</a>)
   - Tech-Stack: *Java, OpenCL, CUDA, Java Swing*
 
-###
+##
 
-<h3>Languages and Tools:</h3>
+### Tech-Stack Overview:
 <div align="left">
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" width="30" alt="java logo" title="Java" />
   <img width="12" />
