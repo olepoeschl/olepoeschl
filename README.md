@@ -20,6 +20,7 @@
   - Backend: *Java, Javalin, SQLite*
   - Frontend: *Java, Java Swing, Java Threads, OpenCL*
 - **high-performance** single-GPU, multi-GPU and multithreaded solvers for the **N-queens problem** (<a href="https://github.com/olepoeschl/NQueensFAF">source code</a>)
+  - Tech-Stack: *Java, OpenCL, CUDA, Java Swing*
 
 ###
 
