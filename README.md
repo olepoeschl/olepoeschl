@@ -51,4 +51,4 @@
 
 📨 <a href="mailto:ole@poeschl.io">Contact me</a>
 
-<!--img align="right" src="https://visitor-badge.laobi.icu/badge?page_id=olepoeschl.olepoeschl&left_text=visited" /-->
+<img align="right" src="https://visitor-badge.laobi.icu/badge?page_id=olepoeschl.olepoeschl&left_text=visited">
