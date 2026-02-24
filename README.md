@@ -12,7 +12,7 @@ Beyond my dev life:
 - and sometimes producing hip-hop beats
 
 are activities I enjoy. <br>
-Generally, I try to be open to everything! My dream is to live a simple life and I already try to implement that, which I find rewarding but not always easy in our modern world.
+Generally, I try to be open to everything!
  
 ### 
 
