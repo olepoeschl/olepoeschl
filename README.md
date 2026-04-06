@@ -1,6 +1,6 @@
 ## Hi, I'm Ole 👋
 
-🌱 Studying **Applied Computer Science** <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![Bachlor progress](https://progress-bar.xyz/100?title=Bachelor) ![Master progress](https://progress-bar.xyz/50?title=Master)
+🌱 Studying **Applied Computer Science** <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![Bachlor progress](https://progress-bar.xyz/100?title=Bachelor) ![Master progress](https://progress-bar.xyz/60?title=Master)
 
 I am mainly interested in **parallel programming**, distributed systems and gamedev. Specifically, the **N-queens problem** has been part of my dev life for several years now.
 
