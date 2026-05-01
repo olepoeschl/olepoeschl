@@ -20,7 +20,7 @@ Generally, I try to be open to everything!
 - **optimized** methods and an improved **distributed system** for solving the **N-queens problem**
 - a **Java library** for creating **self-updating** desktop applications
 
-## 🚀 What's on my todo list?
+## 🚀 What's on my list
 - I wanna learn *SYCL* and try [AdaptiveCPP](https://github.com/AdaptiveCpp/AdaptiveCpp).
 - I wanna create a GBA game using [Butano](https://github.com/gvaliente/butano).
 - I wanna dive a bit deeper into *IT security*, as this was a major topic during my Bachelor's that I've had little exposure to in the last few years.
