@@ -17,7 +17,7 @@ Generally, I try to be open to everything!
 ### 
 
 ## 🛠️ Work in progress:
-- optimized methods and an improved distributed system for solving the N-queens problem
+- develop optimized methods and an improved distributed system for solving the N-queens problem
 - a Java library for creating self-updating desktop applications
 
 ## 🚀 What's on my list
