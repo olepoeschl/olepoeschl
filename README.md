@@ -1,8 +1,8 @@
 ## Hi, I'm Ole 👋
 
-🌱 Studying **Applied Computer Science** <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![Bachlor progress](https://progress-bar.xyz/100?title=Bachelor) ![Master progress](https://progress-bar.xyz/70?title=Master)
+🌱 Studying **Applied Computer Science** <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![Bachlor progress](https://progress-bar.xyz/100?title=Bachelor) ![Master progress](https://progress-bar.xyz/80?title=Master)
 
-I am mainly interested in **parallel programming**, distributed systems and gamedev. Specifically, the **N-queens problem** has been part of my dev life for several years now.
+I'm mainly interested in parallel programming, distributed systems and gamedev. Specifically, the N-queens problem has been part of my dev life for several years now.
 
 Beyond my dev life:
 - travelling, camping and backpacking,
@@ -17,26 +17,26 @@ Generally, I try to be open to everything!
 ### 
 
 ## 🛠️ Work in progress:
-- **optimized** methods and an improved **distributed system** for solving the **N-queens problem**
-- a **Java library** for creating **self-updating** desktop applications
+- optimized methods and an improved distributed system for solving the N-queens problem
+- a Java library for creating self-updating desktop applications
 
 ## 🚀 What's on my list
-- learn SYCL and try [AdaptiveCPP](https://github.com/AdaptiveCpp/AdaptiveCpp).
-- create a GBA game using [Butano](https://github.com/gvaliente/butano).
-- dive a bit deeper into IT security, as this was a major topic during my Bachelor's that I've had little exposure to in the last few years.
+- learn SYCL and try [AdaptiveCPP](https://github.com/AdaptiveCpp/AdaptiveCpp)
+- create a Gameboy Advance game using [Butano](https://github.com/gvaliente/butano)
+- dive a bit deeper into IT security, as this was a major topic during my Bachelor's that I've had little exposure to in the last few years
 
 ## 🏁 Finished Projects:
-- a **real time remote support** system for android-based **AR glasses** (solo-project as a research assistant)
+- a real time remote support system for android-based AR glasses (solo-project as a research assistant)
   - Backend: *Java, Javalin*
   - Web-Frontend: *plain HTML+CSS+Javascript*
   - Android-Frontend: *Java, Android Views, MVVM, Hilt*
   - Protocols: *WebSocket, WebRTC*
-- a pixel-based **2-player mobile game** for long-distance relationship couples, based in a shared world, with **synchronous and asynchronous interaction** features
+- a pixel-based 2-player mobile game for long-distance relationships, based in a shared world, with synchronous and asynchronous interaction features
   - Tech-Stack: *Java, libGDX, Tiled*
-- a prototype of a **distributed system** for solving the **N-queens problem** on **heterogeneous GPUs** (Bachelor's thesis)
+- a prototype of a distributed system for solving the N-queens problem on heterogeneous GPUs (Bachelor's thesis)
   - Backend: *Java, Javalin, SQLite*
-  - Frontend: *Java, Java Swing, Java Threads, OpenCL*
-- **high-performance** single-GPU, multi-GPU and multithreaded solvers for the **N-queens problem** (<a href="https://github.com/olepoeschl/NQueensFAF">source code</a>)
+  - Frontend: *Java, Java Swing, OpenCL*
+- high-performance single-GPU, multi-GPU and multithreaded solvers for the N-queens problem (<a href="https://github.com/olepoeschl/NQueensFAF">source code</a>)
   - Tech-Stack: *Java, OpenCL, CUDA, Java Swing*
 
 ##
