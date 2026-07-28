@@ -6,8 +6,8 @@ I'm mainly interested in parallel programming, distributed systems and gamedev. 
 
 Beyond my dev life:
 - travelling, camping and backpacking,
-- board games and video games,
-- bouldering,
+- playing board games and video games,
+- drinking tea,
 - speedcubing,
 - and sometimes producing hip-hop beats
 
