@@ -65,6 +65,6 @@ Generally, I try to be open to everything!
 
 ###  
 
-📨 <a href="mailto:ole@poeschl.io">Contact me</a>
+📨 <a href="mailto:ole@poeschl.io">Text me</a>
 
-<img align="right" src="https://visitor-badge.laobi.icu/badge?page_id=olepoeschl.olepoeschl&left_text=visited">
+<!--img align="right" src="https://visitor-badge.laobi.icu/badge?page_id=olepoeschl.olepoeschl&left_text="-->
