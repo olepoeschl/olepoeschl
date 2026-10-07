@@ -16,9 +16,8 @@ Generally, I try to be open to everything!
  
 ### 
 
-## 🛠️ Work in progress:
-- develop optimized methods and an improved distributed system for solving the N-queens problem
-- a Java library for creating self-updating desktop applications
+## 🛠️ Currently working on:
+My Master's thesis
 
 ## 🚀 What's on my list
 - learn SYCL and try [AdaptiveCPP](https://github.com/AdaptiveCpp/AdaptiveCpp)
